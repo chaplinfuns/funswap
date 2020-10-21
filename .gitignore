@@ -1,0 +1,6 @@
+/node_modules/
+/build/
+/package.
+/truffle-config-test.js
+/config.js
+/verify_helper
