@@ -51,11 +51,11 @@ contract('FunSwapToken', ([alice, bob, carol]) => {
         await this.funs.mint(alice, '100', { from: alice });
         await expectRevert(
             this.funs.transfer(carol, '110', { from: alice }),
-            'ERC20: transfer amount exceeds balance',
+            'Funs::_transferTokens amount exceeds balance',
         );
         await expectRevert(
             this.funs.transfer(carol, '1', { from: bob }),
-            'ERC20: transfer amount exceeds balance',
+            'Funs::_transferTokens amount exceeds balance',
         );
     });
   });

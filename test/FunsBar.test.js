@@ -14,12 +14,12 @@ contract('FunsBar', ([alice, bob, carol]) => {
     it('should not allow enter if not enough approve', async () => {
         await expectRevert(
             this.bar.enter('100', { from: alice }),
-            'ERC20: transfer amount exceeds allowance',
+            'Funs::transferFrom: transfer amount exceeds spender allowance',
         );
         await this.funs.approve(this.bar.address, '50', { from: alice });
         await expectRevert(
             this.bar.enter('100', { from: alice }),
-            'ERC20: transfer amount exceeds allowance',
+            'Funs::transferFrom: transfer amount exceeds spender allowance',
         );
         await this.funs.approve(this.bar.address, '100', { from: alice });
         await this.bar.enter('100', { from: alice });
@@ -31,7 +31,7 @@ contract('FunsBar', ([alice, bob, carol]) => {
         await this.bar.enter('100', { from: alice });
         await expectRevert(
             this.bar.leave('200', { from: alice }),
-            'ERC20: burn amount exceeds balance',
+            'iFuns: burn amount exceeds balance',
         );
     });
 
